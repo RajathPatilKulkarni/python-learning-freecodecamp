@@ -25,6 +25,8 @@ class Email:
     def __str__(self):
         status = 'Read' if self.read else 'Unread'
         return f"[{status}] From: {self.sender.name} | Subject: {self.subject} | Time: {self.timestamp.strftime('%Y-%m-%d %H:%M')}"
+
+
 class Inbox:
     def __init__(self):
         self.emails = []
@@ -39,7 +41,6 @@ class Inbox:
         print('\nYour Emails:')
         for i, email in enumerate(self.emails, start=1):
             print(f'{i}. {email}')
-
 
     def read_email(self, index):
         if not self.emails:
@@ -62,6 +63,7 @@ class Inbox:
         del self.emails[actual_index]
         print('Email deleted.\n')
         
+        
 class User:
     def __init__(self, name):
         self.name = name
@@ -81,6 +83,7 @@ class User:
 
     def delete_email(self, index):
         self.inbox.delete_email(index)
+        
 
 def main():
     tory = User('Tory')
@@ -93,6 +96,7 @@ def main():
     ramy.read_email(1)
     ramy.delete_email(1)
     ramy.check_inbox()
-    
+
+
 if __name__ == '__main__':
     main()
